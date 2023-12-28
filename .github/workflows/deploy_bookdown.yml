@@ -22,6 +22,9 @@ jobs:
       EMAIL: ${{ secrets.EMAIL }}
     steps:
       - uses: actions/checkout@v3
+      - name: Install XQuartz on macOS
+        if: runner.os == 'macOS'
+        run: brew install xquartz --cask
 
       - uses: r-lib/actions/setup-pandoc@v2
 
