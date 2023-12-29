@@ -1,4 +1,4 @@
-## ----message=FALSE-------------------------------------------------------------------------------
+## ----message=FALSE------------------------------------------------------------
 library(tidyverse)
 library(moderndive)
 library(infer)
@@ -6,14 +6,14 @@ library(infer)
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 evals_ch5 <- evals %>%
   select(ID, score, bty_avg, age)
 glimpse(evals_ch5)
 
 
 
-## ----regline, fig.cap="Relationship with regression line.", fig.height=3.2, message=FALSE--------
+## ----regline, fig.cap="Relationship with regression line.", fig.height=3.2, message=FALSE----
 ggplot(evals_ch5, 
        aes(x = bty_avg, y = score)) +
   geom_point() +
@@ -23,7 +23,7 @@ ggplot(evals_ch5,
   geom_smooth(method = "lm", se = FALSE)
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## # Fit regression model:
 ## score_model <- lm(score ~ bty_avg, data = evals_ch5)
 ## # Get regression table:
@@ -43,7 +43,7 @@ ggplot(evals_ch5,
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 # Fit regression model:
 score_model <- lm(score ~ bty_avg, data = evals_ch5)
 # Get regression points:
@@ -53,12 +53,12 @@ regression_points
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 evals %>% 
   select(ID, prof_ID, score, bty_avg)
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(regression_points, aes(x = residual)) +
 ##   geom_histogram(binwidth = 0.25, color = "white") +
 ##   labs(x = "Residual")
@@ -67,7 +67,7 @@ evals %>%
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(regression_points, aes(x = bty_avg, y = residual)) +
 ##   geom_point() +
 ##   labs(x = "Beauty Score", y = "Residual") +
@@ -81,7 +81,7 @@ evals %>%
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## bootstrap_distn_slope <- evals_ch5 %>%
 ##   specify(formula = score ~ bty_avg) %>%
 ##   generate(reps = 1000, type = "bootstrap") %>%
@@ -94,26 +94,26 @@ evals %>%
 visualize(bootstrap_distn_slope)
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 percentile_ci <- bootstrap_distn_slope %>% 
   get_confidence_interval(type = "percentile", level = 0.95)
 percentile_ci
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 observed_slope <- evals %>% 
   specify(score ~ bty_avg) %>% 
   calculate(stat = "slope")
 observed_slope
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 se_ci <- bootstrap_distn_slope %>% 
   get_ci(level = 0.95, type = "se", point_estimate = observed_slope)
 se_ci
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## visualize(bootstrap_distn_slope) +
 ##   shade_confidence_interval(endpoints = percentile_ci, fill = NULL,
 ##                             linetype = "solid", color = "grey90") +
@@ -125,7 +125,7 @@ se_ci
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## null_distn_slope <- evals %>%
 ##   specify(score ~ bty_avg) %>%
 ##   hypothesize(null = "independence") %>%
@@ -138,7 +138,7 @@ se_ci
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 null_distn_slope %>% 
   get_p_value(obs_stat = observed_slope, direction = "both")
 

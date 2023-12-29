@@ -1,4 +1,4 @@
-## ----message=FALSE-------------------------------------------------------------------------------
+## ----message=FALSE------------------------------------------------------------
 library(nycflights13)
 library(ggplot2)
 library(moderndive)
@@ -20,14 +20,14 @@ library(moderndive)
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) +
 ##   geom_point()
 
 
 
 
-## ----nolayers, fig.cap="A plot with no layers.", fig.height=2.5----------------------------------
+## ----nolayers, fig.cap="A plot with no layers.", fig.height=2.5---------------
 ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay))
 
 
@@ -42,7 +42,7 @@ ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) +
 
 
 
-## ----jitter, fig.cap="Arrival versus departure delays jittered scatterplot.", fig.height=4.7-----
+## ----jitter, fig.cap="Arrival versus departure delays jittered scatterplot.", fig.height=4.7----
 ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) + 
   geom_jitter(width = 30, height = 30)
 
@@ -55,7 +55,7 @@ ggplot(data = alaska_flights, mapping = aes(x = dep_delay, y = arr_delay)) +
 
 
 
-## ----hourlytemp, fig.cap="Hourly temperature in Newark for January 1-15, 2013."------------------
+## ----hourlytemp, fig.cap="Hourly temperature in Newark for January 1-15, 2013."----
 ggplot(data = early_january_weather, 
        mapping = aes(x = time_hour, y = temp)) +
   geom_line()
@@ -88,17 +88,17 @@ ggplot(data = weather, mapping = aes(x = temp)) +
   geom_histogram(color = "white")
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(data = weather, mapping = aes(x = temp)) +
 ##   geom_histogram(color = "white", fill = "steelblue")
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(data = weather, mapping = aes(x = temp)) +
 ##   geom_histogram(bins = 40, color = "white")
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(data = weather, mapping = aes(x = temp)) +
 ##   geom_histogram(binwidth = 10, color = "white")
 
@@ -109,7 +109,7 @@ ggplot(data = weather, mapping = aes(x = temp)) +
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(data = weather, mapping = aes(x = temp)) +
 ##   geom_histogram(binwidth = 5, color = "white") +
 ##   facet_wrap(~ month)
@@ -117,7 +117,7 @@ ggplot(data = weather, mapping = aes(x = temp)) +
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(data = weather, mapping = aes(x = temp)) +
 ##   geom_histogram(binwidth = 5, color = "white") +
 ##   facet_wrap(~ month, nrow = 4)
@@ -137,7 +137,7 @@ ggplot(data = weather, mapping = aes(x = temp)) +
 
 
 
-## ----badbox, fig.cap="Invalid boxplot specification.", fig.height=2.4----------------------------
+## ----badbox, fig.cap="Invalid boxplot specification.", fig.height=2.4---------
 ggplot(data = weather, mapping = aes(x = month, y = temp)) +
   geom_boxplot()
 
@@ -151,7 +151,7 @@ ggplot(data = weather, mapping = aes(x = factor(month), y = temp)) +
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 fruits <- tibble(
   fruit = c("apple", "apple", "orange", "apple", "orange")
 )
@@ -165,17 +165,17 @@ fruits_counted <- tibble(
 
 
 
-## ----geombar, fig.cap="Barplot when counts are not pre-counted.", fig.height=1.8-----------------
+## ----geombar, fig.cap="Barplot when counts are not pre-counted.", fig.height=1.8----
 ggplot(data = fruits, mapping = aes(x = fruit)) +
   geom_bar()
 
 
-## ----geomcol, fig.cap="Barplot when counts are pre-counted.", fig.height=2.5---------------------
+## ----geomcol, fig.cap="Barplot when counts are pre-counted.", fig.height=2.5----
 ggplot(data = fruits_counted, mapping = aes(x = fruit, y = number)) +
   geom_col()
 
 
-## ----flightsbar, fig.cap="(ref:geombar)", fig.height=2.8-----------------------------------------
+## ----flightsbar, fig.cap="(ref:geombar)", fig.height=2.8----------------------
 ggplot(data = flights, mapping = aes(x = carrier)) +
   geom_bar()
 
@@ -192,45 +192,45 @@ ggplot(data = flights, mapping = aes(x = carrier)) +
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(data = flights, mapping = aes(x = carrier)) +
 ##   geom_bar()
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(data = flights, mapping = aes(x = carrier, fill = origin)) +
 ##   geom_bar()
 
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(data = flights, mapping = aes(x = carrier, color = origin)) +
 ##   geom_bar()
 
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(data = flights, mapping = aes(x = carrier), fill = origin) +
 ##   geom_bar()
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(data = flights, mapping = aes(x = carrier, fill = origin)) +
 ##   geom_bar(position = "dodge")
 
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(data = flights, mapping = aes(x = carrier, fill = origin)) +
 ##   geom_bar(position = position_dodge(preserve = "single"))
 
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(data = flights, mapping = aes(x = carrier)) +
 ##   geom_bar() +
 ##   facet_wrap(~ origin, ncol = 1)
@@ -244,7 +244,7 @@ ggplot(data = flights, mapping = aes(x = carrier)) +
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## # Segment 1:
 ## ggplot(data = flights, mapping = aes(x = carrier)) +
 ##   geom_bar()
@@ -262,7 +262,7 @@ ggplot(data = flights, mapping = aes(x = carrier)) +
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## library(dplyr)
 ## 
 ## alaska_flights <- flights %>%
@@ -272,7 +272,7 @@ ggplot(data = flights, mapping = aes(x = carrier)) +
 ##   geom_point()
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## early_january_weather <- weather %>%
 ##   filter(origin == "EWR" & month == 1 & day <= 15)
 ## 

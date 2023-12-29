@@ -87,7 +87,7 @@ if (!"skimr" %in% installed.packages()) {
 }
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE}
 # Used in 95-appendixE.Rmd
 needed_pkgs <- unique(c(
   needed_CRAN_pkgs, "skimr", "bookdown"
@@ -148,6 +148,29 @@ if (is_html_output()) {
   cat("# Welcome to ModernDive {-}")
 }
 ```
+
+```{r echo=FALSE}
+# Install and load pdftools package
+#install.packages("pdftools")
+suppressPackageStartupMessages(library(pdftools))
+
+# URL of the PDF
+pdf_url <- "https://ismaytemp.github.io/ModernDive_book/ModernDive.pdf"
+# Download PDF file to a temporary file
+temp_pdf <- tempfile(fileext = ".pdf")
+download.file(pdf_url, temp_pdf, mode = "wb")
+
+# Get information about the PDF, including the number of pages
+pdf_info <- pdf_info(temp_pdf)
+
+# Print the number of pages
+print(paste("The PDF version of this book has", pdf_info$pages, "pages."))
+
+# Optionally, delete the temporary file if not needed
+unlink(temp_pdf)
+```
+
+
 
 <!-- purl() all the chapter Rmd's in a new session -->
 ```{bash, include=FALSE, purl=FALSE}
@@ -299,7 +322,8 @@ if (is_html_output()) {
 ```
 </br>
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work by [Chester Ismay](https://chester.rbind.io/) and [Albert Y. Kim](https://rudeboybert.rbind.io/) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work by [Chester Ismay](https://chester.rbind.io/), [Albert Y. Kim](https://rudeboybert.rbind.io/), and Arturo Valdivia is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
 
 
 <!-- index.Rmd has to have some content in it or it won't create an index.html 

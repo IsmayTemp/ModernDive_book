@@ -1,4 +1,4 @@
-## ----message=FALSE-------------------------------------------------------------------------------
+## ----message=FALSE------------------------------------------------------------
 library(tidyverse)
 library(infer)
 library(moderndive)
@@ -10,17 +10,17 @@ library(ggplot2movies)
 
 
 
-## ----echo=FALSE----------------------------------------------------------------------------------
+## ----echo=FALSE---------------------------------------------------------------
 set.seed(2102)
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 promotions %>% 
   sample_n(size = 6) %>% 
   arrange(id)
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(promotions, aes(x = gender, fill = decision)) +
 ##   geom_bar() +
 ##   labs(x = "Gender of name on résumé")
@@ -28,7 +28,7 @@ promotions %>%
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 promotions %>% 
   group_by(gender, decision) %>% 
   tally()
@@ -44,7 +44,7 @@ promotions %>%
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## ggplot(promotions_shuffled,
 ##        aes(x = gender, fill = decision)) +
 ##   geom_bar() +
@@ -52,7 +52,7 @@ promotions %>%
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 promotions_shuffled %>% 
   group_by(gender, decision) %>% 
   tally() # Same as summarize(n = n())
@@ -67,14 +67,14 @@ promotions_shuffled %>%
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## obs_diff_prop <- promotions %>%
 ##   specify(decision ~ gender, success = "promoted") %>%
 ##   calculate(stat = "diff in props", order = c("male", "female"))
 ## obs_diff_prop
 
 
-## ----echo=FALSE, eval=FALSE----------------------------------------------------------------------
+## ----echo=FALSE, eval=FALSE---------------------------------------------------
 ## set.seed(2019)
 ## tactile_permutes <- promotions %>%
 ##   specify(decision ~ gender, success = "promoted") %>%
@@ -99,12 +99,12 @@ promotions_shuffled %>%
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 promotions %>% 
   specify(formula = decision ~ gender, success = "promoted") 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 promotions %>% 
   specify(formula = decision ~ gender, success = "promoted") %>% 
   hypothesize(null = "independence")
@@ -112,7 +112,7 @@ promotions %>%
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## promotions_generate <- promotions %>%
 ##   specify(formula = decision ~ gender, success = "promoted") %>%
 ##   hypothesize(null = "independence") %>%
@@ -122,7 +122,7 @@ promotions %>%
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## null_distribution <- promotions %>%
 ##   specify(formula = decision ~ gender, success = "promoted") %>%
 ##   hypothesize(null = "independence") %>%
@@ -133,29 +133,29 @@ promotions %>%
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 obs_diff_prop <- promotions %>% 
   specify(decision ~ gender, success = "promoted") %>% 
   calculate(stat = "diff in props", order = c("male", "female"))
 obs_diff_prop
 
 
-## ----null-distribution-infer, fig.show="hold", fig.cap="Null distribution.", fig.height=1.8------
+## ----null-distribution-infer, fig.show="hold", fig.cap="Null distribution.", fig.height=1.8----
 visualize(null_distribution, bins = 10)
 
 
-## ----null-distribution-infer-2, fig.cap="Shaded histogram to show $p$-value."--------------------
+## ----null-distribution-infer-2, fig.cap="Shaded histogram to show $p$-value."----
 visualize(null_distribution, bins = 10) + 
   shade_p_value(obs_stat = obs_diff_prop, direction = "right")
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 null_distribution %>% 
   get_p_value(obs_stat = obs_diff_prop, direction = "right")
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## null_distribution <- promotions %>%
 ##   specify(formula = decision ~ gender, success = "promoted") %>%
 ##   hypothesize(null = "independence") %>%
@@ -163,7 +163,7 @@ null_distribution %>%
 ##   calculate(stat = "diff in props", order = c("male", "female"))
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## bootstrap_distribution <- promotions %>%
 ##   specify(formula = decision ~ gender, success = "promoted") %>%
 ##   # Change 1 - Remove hypothesize():
@@ -175,26 +175,26 @@ null_distribution %>%
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 percentile_ci <- bootstrap_distribution %>% 
   get_confidence_interval(level = 0.95, type = "percentile")
 percentile_ci
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## visualize(bootstrap_distribution) +
 ##   shade_confidence_interval(endpoints = percentile_ci)
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 se_ci <- bootstrap_distribution %>% 
   get_confidence_interval(level = 0.95, type = "se", 
                           point_estimate = obs_diff_prop)
 se_ci
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## visualize(bootstrap_distribution) +
 ##   shade_confidence_interval(endpoints = se_ci)
 
@@ -202,7 +202,7 @@ se_ci
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## library(moderndive)
 ## library(infer)
 ## null_distribution_mean <- promotions %>%
@@ -232,23 +232,23 @@ se_ci
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 movies
 
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 movies_sample
 
 
-## ----action-romance-boxplot, fig.cap="Boxplot of IMDb rating vs. genre.", fig.height=2.7---------
+## ----action-romance-boxplot, fig.cap="Boxplot of IMDb rating vs. genre.", fig.height=2.7----
 ggplot(data = movies_sample, aes(x = genre, y = rating)) +
   geom_boxplot() +
   labs(y = "IMDb rating")
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 movies_sample %>% 
   group_by(genre) %>% 
   summarize(n = n(), mean_rating = mean(rating), std_dev = sd(rating))
@@ -257,18 +257,18 @@ movies_sample %>%
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 movies_sample %>% 
   specify(formula = rating ~ genre)
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 movies_sample %>% 
   specify(formula = rating ~ genre) %>% 
   hypothesize(null = "independence")
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## movies_sample %>%
 ##   specify(formula = rating ~ genre) %>%
 ##   hypothesize(null = "independence") %>%
@@ -278,7 +278,7 @@ movies_sample %>%
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## null_distribution_movies <- movies_sample %>%
 ##   specify(formula = rating ~ genre) %>%
 ##   hypothesize(null = "independence") %>%
@@ -289,25 +289,25 @@ movies_sample %>%
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 obs_diff_means <- movies_sample %>% 
   specify(formula = rating ~ genre) %>% 
   calculate(stat = "diff in means", order = c("Action", "Romance"))
 obs_diff_means
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## visualize(null_distribution_movies, bins = 10) +
 ##   shade_p_value(obs_stat = obs_diff_means, direction = "both")
 
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 null_distribution_movies %>% 
   get_p_value(obs_stat = obs_diff_means, direction = "both")
 
-## ----echo=FALSE----------------------------------------------------------------------------------
+## ----echo=FALSE---------------------------------------------------------------
 p_value_movies <- null_distribution_movies %>%
   get_p_value(obs_stat = obs_diff_means, direction = "both") %>%
   mutate(p_value = round(p_value, 3))
@@ -321,14 +321,14 @@ p_value_movies <- null_distribution_movies %>%
 
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 movies_sample %>% 
   group_by(genre) %>% 
   summarize(n = n(), mean_rating = mean(rating), std_dev = sd(rating))
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## # Construct null distribution of xbar_a - xbar_r:
 ## null_distribution_movies <- movies_sample %>%
 ##   specify(formula = rating ~ genre) %>%
@@ -338,7 +338,7 @@ movies_sample %>%
 ## visualize(null_distribution_movies, bins = 10)
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## # Construct null distribution of t:
 ## null_distribution_movies_t <- movies_sample %>%
 ##   specify(formula = rating ~ genre) %>%
@@ -357,7 +357,7 @@ movies_sample %>%
 visualize(null_distribution_movies_t, bins = 10, method = "both")
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 obs_two_sample_t <- movies_sample %>% 
   specify(formula = rating ~ genre) %>% 
   calculate(stat = "t", order = c("Action", "Romance"))
@@ -369,12 +369,12 @@ visualize(null_distribution_movies_t, method = "both") +
   shade_p_value(obs_stat = obs_two_sample_t, direction = "both")
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 null_distribution_movies_t %>% 
   get_p_value(obs_stat = obs_two_sample_t, direction = "both")
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 flights_sample <- flights %>% 
   filter(carrier %in% c("HA", "AS"))
 
@@ -385,7 +385,7 @@ ggplot(data = flights_sample, mapping = aes(x = carrier, y = air_time)) +
   labs(x = "Carrier", y = "Air Time")
 
 
-## ------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 flights_sample %>% 
   group_by(carrier, dest) %>% 
   summarize(n = n(), mean_time = mean(air_time, na.rm = TRUE))
@@ -397,7 +397,7 @@ flights_sample %>%
 
 
 
-## ----eval=FALSE----------------------------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 ## # Fit regression model:
 ## score_model <- lm(score ~ bty_avg, data = evals)
 ## 
