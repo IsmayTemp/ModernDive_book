@@ -4,15 +4,12 @@
 # Update this if the number of chapters in the book increases
 num_chapters <- 11
 
-# For %>%
-library(dplyr)
-
 # Create vector of Rmd file names
 rmds <- list.files(pattern = "*.Rmd")
 
 # Get chapter numbers from files
-file_numbers <- list.files(pattern = "*.Rmd") %>%
-  stringr::str_extract(pattern = "[0-9]+") %>%
+file_numbers <- list.files(pattern = "*.Rmd") |>
+  stringr::str_extract(pattern = "[0-9]+") |>
   as.numeric()
 
 # Get only those Rmd files that we'd like to purl()

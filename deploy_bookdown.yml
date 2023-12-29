@@ -57,19 +57,6 @@ jobs:
           tlmgr update --all
           updmap-sys
 
-      - name: Install Inconsolata font if not present
-        run: |
-          if ! tlmgr list --installed | grep -q inconsolata; then
-            tlmgr install inconsolata
-            updmap-sys
-          fi
-        shell: bash
-
-      - name: Test Inconsolata font in LaTeX
-        run: |
-          echo "\documentclass{article}\usepackage{inconsolata}\begin{document}Hello, Inconsolata!\end{document}" > test.tex
-          pdflatex test.tex
-
       - name: Cache bookdown results
         uses: actions/cache@v3
         with:
