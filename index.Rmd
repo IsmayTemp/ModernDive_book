@@ -87,7 +87,7 @@ if (!"skimr" %in% installed.packages()) {
 }
 ```
 
-```{r}
+```{r echo=FALSE}
 # Used in 95-appendixE.Rmd
 needed_pkgs <- unique(c(
   needed_CRAN_pkgs, "skimr", "bookdown"
@@ -115,9 +115,12 @@ if (!dir.exists("rds")) {
   dir.create("rds")
 }
 
-# Create empty docs folder which will ultimately contain output
+# Create `docs`` folder and `scripts` subfolder
 if (!dir.exists("docs")) {
   dir.create("docs")
+}
+if (!dir.exists(here::here("docs", "scripts"))) {
+  dir.create(here::here("docs", "scripts"))
 }
 
 # Make sure all images copy to docs folder
@@ -145,19 +148,6 @@ if (is_html_output()) {
   cat("# Welcome to ModernDive {-}")
 }
 ```
-
-```{r echo=FALSE}
-# To not have the next bash chunk error out on first build
-
-# Create `docs`` folder and `scripts` subfolder
-if (!dir.exists("docs")) {
-  dir.create("docs")
-}
-if (!dir.exists(here::here("docs", "scripts"))) {
-  dir.create(here::here("docs", "scripts"))
-}
-```
-
 
 <!-- purl() all the chapter Rmd's in a new session -->
 ```{bash, include=FALSE, purl=FALSE}
