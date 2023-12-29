@@ -295,11 +295,10 @@ image_link <- function(path,
 ```
 -->
 
-<!--
+
 ```{block, type='learncheck', include=!is_latex_output(), purl=FALSE}
 **Please note that you are currently looking at a preview of a future version of *ModernDive*, which is currently being edited. For the current version of *ModernDive*, please visit [ModernDive.com](https://moderndive.com/).**
 ```
--->
 
 
 ```{r, echo=FALSE, include=!is_latex_output(), purl=FALSE}
