@@ -8,7 +8,7 @@ documentclass: krantz
 bibliography: [bib/books.bib, bib/packages.bib, bib/articles.bib]
 biblio-style: apalike
 fontsize: '11pt, krantz2'
-monofont: "Source Code Pro" # "Inconsolata"
+#monofont: "Inconsolata" # "Source Code Pro"
 monofontoptions: "Scale=0.85"
 link-citations: yes
 colorlinks: yes
