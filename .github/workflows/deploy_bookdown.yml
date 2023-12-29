@@ -29,7 +29,6 @@ jobs:
 
       - name: Install tinytex
         run: |
-          install.packages("tinytex")
           tinytex::install_tinytex()
         shell: Rscript {0}
 

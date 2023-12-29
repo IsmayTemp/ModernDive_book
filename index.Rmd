@@ -161,6 +161,7 @@ if (!dir.exists(here::here("docs", "scripts"))) {
 
 <!-- purl() all the chapter Rmd's in a new session -->
 ```{bash, include=FALSE, purl=FALSE}
+tlmgr install inconsolata
 Rscript -e "source('purl.R', local = TRUE)"
 ```
 
