@@ -1,11 +1,18 @@
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: '*/30 * * * *' # every 30 minutes
+  workflow_dispatch: # on button click
+
 version: "1"
 rules:                      # Array of rules
   - base: ch7_8_updates           # Required. Target branch
     upstream: avaldivi6:ch7_8_updates   # Required. Must be in the same fork network.
     mergeMethod: hardreset  # Optional, one of [none, merge, squash, rebase, hardreset], Default: none.
     mergeUnstable: false    # Optional, merge pull request even when the mergeable_state is not clean. Default: false
-  - base: dev
-    upstream: master        # Required. Can be a branch in the same forked repo.
+  - base: ch7_8_updates
+    upstream: avaldivi6:ch7_8_updates         # Required. Can be a branch in the same forked repo.
     assignees:              # Optional
       - ismayc
     reviewers:              # Optional
