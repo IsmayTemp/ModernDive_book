@@ -162,7 +162,7 @@ suppressPackageStartupMessages(library(pdftools))
 
 # Get information about the PDF, including the number of pages
 #pdf_info <- pdf_info(temp_pdf)
-pdf_info <- pdf_info("docs/ModernDive.pdf")
+pdf_info <- pdf_info("ModernDive.pdf")
 
 # Print the number of pages
 print(paste("The PDF version of this book has", pdf_info$pages, "pages."))
