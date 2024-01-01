@@ -4,7 +4,7 @@
 # generates the .tex file in the `docs` folder
 bookdown::render_book("index.Rmd", "bookdown::pdf_book",
   clean = FALSE,
-  clean_envir = FALSE,
+#  clean_envir = FALSE,
   encoding = "UTF-8"
 )
 

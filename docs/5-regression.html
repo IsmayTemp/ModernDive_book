@@ -23,7 +23,7 @@
 <meta name="author" content="Chester Ismay, Albert Y. Kim, and Arturo Valdivia   Foreword by Kelly S. McConville" />
 
 
-<meta name="date" content="2023-11-11" />
+<meta name="date" content="2023-12-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -721,7 +721,7 @@ div.csl-indent {
 <li><strong>Modeling for prediction</strong>: When you want to predict an outcome variable <span class="math inline">\(y\)</span> based on the information contained in a set of predictor variables <span class="math inline">\(x\)</span>. Unlike modeling for explanation, however, you don’t care so much about understanding how all the variables relate and interact with one another, but rather only whether you can make good predictions about <span class="math inline">\(y\)</span> using the information in <span class="math inline">\(x\)</span>.</li>
 </ol>
 <p>For example, say you are interested in an outcome variable <span class="math inline">\(y\)</span> of whether patients develop lung cancer and information <span class="math inline">\(x\)</span> on their risk factors, such as smoking habits, age, and socioeconomic status. If we are modeling for explanation, we would be interested in both describing and quantifying the effects of the different risk factors. One reason could be that you want to design an intervention to reduce lung cancer incidence in a population, such as targeting smokers of a specific age group with advertising for smoking cessation programs. If we are modeling for prediction, however, we wouldn’t care so much about understanding how all the individual risk factors contribute to lung cancer, but rather only whether we can make good predictions of which people will contract lung cancer.</p>
-<p>In this book, we’ll focus on modeling for explanation and hence refer to <span class="math inline">\(x\)</span> as <em>explanatory variables</em>. If you are interested in learning about modeling for prediction, we suggest you check out books and courses on the field of <em>machine learning</em> such as <a href="http://www-bcf.usc.edu/~gareth/ISL/"><em>An Introduction to Statistical Learning with Applications in R (ISLR)</em></a> <span class="citation">(<a href="#ref-islr2017">James et al. 2017</a>)</span>. Furthermore, while there exist many techniques for modeling, such as tree-based models and neural networks, in this book we’ll focus on one particular technique: <em>linear regression</em>. Linear regression is one of the most commonly-used and easy-to-understand approaches to modeling.</p>
+<p>In this book, we’ll focus on modeling for explanation and hence refer to <span class="math inline">\(x\)</span> as <em>explanatory variables</em>. If you are interested in learning about modeling for prediction, we suggest you check out books and courses on the field of <em>machine learning</em> such as <a href="https://www.statlearning.com/"><em>An Introduction to Statistical Learning with Applications in R (ISLR)</em></a> <span class="citation">(<a href="#ref-islr2017">James et al. 2017</a>)</span>. Furthermore, while there exist many techniques for modeling, such as tree-based models and neural networks, in this book we’ll focus on one particular technique: <em>linear regression</em>. Linear regression is one of the most commonly-used and easy-to-understand approaches to modeling.</p>
 <p>Linear regression involves a <em>numerical</em> outcome variable <span class="math inline">\(y\)</span> and explanatory variables <span class="math inline">\(x\)</span> that are either <em>numerical</em> or <em>categorical</em>. Furthermore, the relationship between <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> is assumed to be linear, or in other words, a line. However, we’ll see that what constitutes a “line” will vary depending on the nature of your explanatory variables <span class="math inline">\(x\)</span>.</p>
 <p>In Chapter <a href="5-regression.html#regression">5</a> on basic regression, we’ll only consider models with a single explanatory variable <span class="math inline">\(x\)</span>. In Section <a href="5-regression.html#model1">5.1</a>, the explanatory variable will be numerical. This scenario is known as <em>simple linear regression</em>. In Section <a href="5-regression.html#model2">5.2</a>, the explanatory variable will be categorical.</p>
 <p>In Chapter <a href="6-multiple-regression.html#multiple-regression">6</a> on multiple regression, we’ll extend the ideas behind basic regression and consider models with two explanatory variables <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>. In Section <a href="6-multiple-regression.html#model4">6.1</a>, we’ll have two numerical explanatory variables. In Section <a href="6-multiple-regression.html#model3">6.2</a>, we’ll have one numerical and one categorical explanatory variable. In particular, we’ll consider two such models: <em>interaction</em> and <em>parallel slopes</em> models.</p>
@@ -2708,7 +2708,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["ModernDive.pdf"],
 "search": {
 "engine": "fuse",
 "options": null

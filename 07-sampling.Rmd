@@ -1418,7 +1418,6 @@ prop_joined <- virtual_prop_red |>
   mutate(prop_diff = prop_red - prop_almond)
 ```
 
-
 The results are stored in the data frame `prop_joined`. The variable `prop_diff` in this data frame represents the difference in sample proportions. We present here the first 10 values of this data frame:
 
 ```{r}
@@ -1462,6 +1461,8 @@ These are not the only cases where the sampling distribution can be obtained. Fo
   # sampling_scenarios <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vRd6bBgNwM3z-AJ7o4gZOiPAdPfbTp_V15HVHRmOH5Fc9w62yaG-fEKtjNUD2wOSa5IJkrDMaEBjRnA/pub?gid=0&single=true&output=csv" |>
   #   read_csv(na = "") |>
   #   slice(1:5)
+
+# Google Sheet at https://docs.google.com/spreadsheets/d/1j7JWF_o2NlA5FFhufSaEiHV6-3b_LtGaSYS-4qrXORM/edit?usp=sharing
   sampling_scenarios <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vRsZO3SQq0mOQVmx88fQHEbn-NxuybJQTKR7Yjpu4o8lG7ojK_LPHjjeJ4tJG7-aFCLU0tbM2eF3gPJ/pub?output=csv" |> 
     read_csv(na = "")
 #  write_rds(sampling_scenarios, "rds/sampling_scenarios.rds")

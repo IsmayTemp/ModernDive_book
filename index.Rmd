@@ -7,8 +7,8 @@ site: bookdown::bookdown_site
 documentclass: krantz
 bibliography: [bib/books.bib, bib/packages.bib, bib/articles.bib]
 biblio-style: apalike
-fontsize: '12pt, krantz2'
-monofont: "Inconsolata" #"Source Code Pro"
+fontsize: '11pt, krantz2'
+#monofont: "Inconsolata" # "Source Code Pro"
 monofontoptions: "Scale=0.85"
 link-citations: yes
 colorlinks: yes
@@ -87,7 +87,7 @@ if (!"skimr" %in% installed.packages()) {
 }
 ```
 
-```{r}
+```{r echo=FALSE, message=FALSE}
 # Used in 95-appendixE.Rmd
 needed_pkgs <- unique(c(
   needed_CRAN_pkgs, "skimr", "bookdown"
@@ -115,9 +115,12 @@ if (!dir.exists("rds")) {
   dir.create("rds")
 }
 
-# Create empty docs folder which will ultimately contain output
+# Create `docs`` folder and `scripts` subfolder
 if (!dir.exists("docs")) {
   dir.create("docs")
+}
+if (!dir.exists(here::here("docs", "scripts"))) {
+  dir.create(here::here("docs", "scripts"))
 }
 
 # Make sure all images copy to docs folder
@@ -145,6 +148,29 @@ if (is_html_output()) {
   cat("# Welcome to ModernDive {-}")
 }
 ```
+
+```{r include=!is_latex_output(), echo=FALSE, eval=FALSE}
+# Install and load pdftools package
+#install.packages("pdftools")
+suppressPackageStartupMessages(library(pdftools))
+
+# # URL of the PDF
+pdf_url <- "https://ismaytemp.github.io/ModernDive_book/ModernDive.pdf"
+# # Download PDF file to a temporary file
+temp_pdf <- tempfile(fileext = ".pdf")
+download.file(pdf_url, temp_pdf, mode = "wb")
+
+# Get information about the PDF, including the number of pages
+#pdf_info <- pdf_info(temp_pdf)
+pdf_info <- pdf_info("docs/ModernDive.pdf")
+
+# Print the number of pages
+print(paste("The PDF version of this book has", pdf_info$pages, "pages."))
+
+# Optionally, delete the temporary file if not needed
+unlink(temp_pdf)
+```
+
 
 
 <!-- purl() all the chapter Rmd's in a new session -->
@@ -270,11 +296,10 @@ image_link <- function(path,
 ```
 -->
 
-<!--
+
 ```{block, type='learncheck', include=!is_latex_output(), purl=FALSE}
 **Please note that you are currently looking at a preview of a future version of *ModernDive*, which is currently being edited. For the current version of *ModernDive*, please visit [ModernDive.com](https://moderndive.com/).**
 ```
--->
 
 
 ```{r, echo=FALSE, include=!is_latex_output(), purl=FALSE}
@@ -297,7 +322,8 @@ if (is_html_output()) {
 ```
 </br>
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work by [Chester Ismay](https://chester.rbind.io/) and [Albert Y. Kim](https://rudeboybert.rbind.io/) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work by [Chester Ismay](https://chester.rbind.io/), [Albert Y. Kim](https://rudeboybert.rbind.io/), and [Arturo Valdivia](https://stat.indiana.edu/about/core-faculty/core-faculty/valdivia-arturo.html) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
 
 
 <!-- index.Rmd has to have some content in it or it won't create an index.html 
