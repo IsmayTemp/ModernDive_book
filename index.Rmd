@@ -149,16 +149,16 @@ if (is_html_output()) {
 }
 ```
 
-```{r include=!is_latex_output(), echo=FALSE}
+```{r include=!is_latex_output(), echo=FALSE, eval=FALSE}
 # Install and load pdftools package
 #install.packages("pdftools")
 suppressPackageStartupMessages(library(pdftools))
 
 # # URL of the PDF
-# pdf_url <- "https://ismaytemp.github.io/ModernDive_book/ModernDive.pdf"
+pdf_url <- "https://ismaytemp.github.io/ModernDive_book/ModernDive.pdf"
 # # Download PDF file to a temporary file
-# temp_pdf <- tempfile(fileext = ".pdf")
-# download.file(pdf_url, temp_pdf, mode = "wb")
+temp_pdf <- tempfile(fileext = ".pdf")
+download.file(pdf_url, temp_pdf, mode = "wb")
 
 # Get information about the PDF, including the number of pages
 #pdf_info <- pdf_info(temp_pdf)
@@ -168,7 +168,7 @@ pdf_info <- pdf_info("docs/ModernDive.pdf")
 print(paste("The PDF version of this book has", pdf_info$pages, "pages."))
 
 # Optionally, delete the temporary file if not needed
-#unlink(temp_pdf)
+unlink(temp_pdf)
 ```
 
 
