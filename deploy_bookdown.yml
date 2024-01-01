@@ -49,6 +49,14 @@ jobs:
           tinytex::install_tinytex()
         shell: Rscript {0}
 
+      - name: Cache LaTeX Packages
+        uses: actions/cache@v3
+        with:
+          path: ~/Library/TinyTeX
+          key: ${{ runner.os }}-tinytex-${{ hashFiles('**/renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-tinytex-
+
       - name: Set up TinyTeX and packages
         run: |
           export PATH=$HOME/.TinyTeX/bin/x86_64-darwin:$PATH
