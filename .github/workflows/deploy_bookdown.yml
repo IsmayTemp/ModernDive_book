@@ -49,6 +49,14 @@ jobs:
           tinytex::install_tinytex()
         shell: Rscript {0}
 
+      - name: Cache LaTeX Packages
+        uses: actions/cache@v3
+        with:
+          path: ~/Library/TinyTeX
+          key: ${{ runner.os }}-tinytex-${{ hashFiles('**/renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-tinytex-
+
       - name: Set up TinyTeX and packages
         run: |
           export PATH=$HOME/.TinyTeX/bin/x86_64-darwin:$PATH
@@ -58,19 +66,6 @@ jobs:
           tlmgr update --all
           updmap-sys
 
-      - name: Install Inconsolata font if not present
-        run: |
-          if ! tlmgr list --installed | grep -q inconsolata; then
-            tlmgr install inconsolata
-            updmap-sys
-          fi
-        shell: bash
-
-      - name: Test Inconsolata font in LaTeX
-        run: |
-          echo "\documentclass{article}\usepackage{inconsolata}\begin{document}Hello, Inconsolata!\end{document}" > test.tex
-          pdflatex test.tex
-
       - name: Cache bookdown results
         uses: actions/cache@v3
         with:
@@ -78,7 +73,7 @@ jobs:
           key: bookdown-${{ hashFiles('**/*Rmd') }}
           restore-keys: bookdown-
 
-      - name: Build site
+      - name: Build book
         run: bookdown::render_book("index.Rmd", quiet = TRUE)
         shell: Rscript {0}
 
