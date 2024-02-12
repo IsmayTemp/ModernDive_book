@@ -269,7 +269,7 @@
 \makeatother
 \subtitle{A ModernDive into R and the Tidyverse}
 \author{Chester Ismay, Albert Y. Kim, and Arturo Valdivia}
-\date{January 06, 2024}
+\date{February 12, 2024}
 
 \begin{document}
 \maketitle
@@ -1566,7 +1566,7 @@ You might be wondering why we wrote the terms \texttt{data}, \texttt{geom}, and 
 In February 2006, a Swedish physician and data advocate named Hans Rosling gave a TED talk titled \href{https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen}{``The best stats you've ever seen''} where he presented global economic, health, and development data from the website \href{http://www.gapminder.org/tools/\#_locale_id=en;\&chart-type=bubbles}{gapminder.org}. For example, for data on 142 countries in 2007, let's consider only a few countries in Table \ref{tab:gapminder-2007} as a peek into the data.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:gapminder-2007}Gapminder 2007 Data: First 3 of 142 countries}
 \centering
 \fontsize{10}{12}\selectfont
@@ -1631,7 +1631,7 @@ We'll see shortly that \texttt{data} corresponds to the particular data frame wh
 Let's summarize the three essential components of the grammar in Table \ref{tab:summary-table-gapminder}.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:summary-table-gapminder}Summary of the grammar of graphics for this plot}
 \centering
 \fontsize{10}{12}\selectfont
@@ -2774,7 +2774,7 @@ Barplots are a common way of displaying the distribution of a categorical variab
 Let's recap all five of the five named graphs (5NG) \index{five named graphs} in Table \ref{tab:viz-summary-table} summarizing their differences. Using these 5NG, you'll be able to visualize the distributions and relationships of variables contained in a wide array of datasets. This will be even more the case as we start to map more variables to more of each \texttt{geom}etric object's \texttt{aes}thetic attribute options, further unlocking the awesome power of the \texttt{ggplot2} package.
 
 \begin{table}
-
+\centering
 \caption{\label{tab:viz-summary-table}Summary of Five Named Graphs}
 \centering
 \fontsize{10}{12}\selectfont
@@ -3573,7 +3573,7 @@ Let's consider another example. Passengers are often frustrated when their fligh
 Let's take a look at only the \texttt{dep\_delay}, \texttt{arr\_delay}, and the resulting \texttt{gain} variables for the first 5 rows in our updated \texttt{flights} data frame in Table \ref{tab:first-five-flights}.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:first-five-flights}First five rows of departure/arrival delay and gain variables}
 \centering
 \begin{tabular}[t]{r|r|r}
@@ -4085,7 +4085,7 @@ Let's further \texttt{arrange()} these results in descending order of \texttt{nu
 Let's recap our data wrangling verbs in Table \ref{tab:wrangle-summary-table}. Using these verbs and the pipe \texttt{\%\textgreater{}\%} operator from Section \ref{piping}, you'll be able to write easily legible code to perform almost all the data wrangling and data transformation necessary for the rest of this book.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:wrangle-summary-table}Summary of data wrangling verbs}
 \centering
 \fontsize{10}{12}\selectfont
@@ -4462,7 +4462,7 @@ A \emph{dataset} is a collection of values, usually either numbers (if quantitat
 For example, say you have the following table of stock prices in Table \ref{tab:non-tidy-stocks}:
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:non-tidy-stocks}Stock prices (non-tidy format)}
 \centering
 \fontsize{10}{12}\selectfont
@@ -4479,7 +4479,7 @@ Date & Boeing stock price & Amazon stock price & Google stock price\\
 Although the data are neatly organized in a rectangular spreadsheet-type format, they do not follow the definition of data in ``tidy'' format. While there are three variables corresponding to three unique pieces of information (date, stock name, and stock price), there are not three columns. In ``tidy'' data format, each variable should be its own column, as shown in Table \ref{tab:tidy-stocks}. Notice that both tables present the same information, but in different formats.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:tidy-stocks}Stock prices (tidy format)}
 \centering
 \fontsize{10}{12}\selectfont
@@ -4500,7 +4500,7 @@ Date & Stock Name & Stock Price\\
 Now we have the requisite three columns Date, Stock Name, and Stock Price. On the other hand, consider the data in Table \ref{tab:tidy-stocks-2}.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:tidy-stocks-2}Example of tidy data}
 \centering
 \fontsize{10}{12}\selectfont
@@ -5080,7 +5080,7 @@ An alternative way to look at the raw data values is by choosing a random sample
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:five-random-courses}A random sample of 5 out of the 463 courses at UT Austin}
 \centering
 \fontsize{10}{12}\selectfont
@@ -5343,7 +5343,7 @@ We can obtain the values of the intercept \(b_0\) and the slope for \texttt{bty\
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:regtable}Linear regression table}
 \centering
 \fontsize{10}{12}\selectfont
@@ -5438,7 +5438,7 @@ Lastly, you might be wondering what the remaining five columns in Table \ref{tab
 We just saw how to get the value of the intercept and the slope of a regression line from the \texttt{estimate} column of a regression table generated by the \texttt{get\_regression\_table()} function. Now instead say we want information on individual observations. For example, let's focus on the 21st of the 463 courses in the \texttt{evals\_ch5} data frame in Table \ref{tab:instructor-21}:
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:instructor-21}Data for the 21st course out of 463}
 \centering
 \fontsize{10}{12}\selectfont
@@ -5634,7 +5634,7 @@ Let's look at a random sample of five out of the 142 countries in Table \ref{tab
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:model2-data-preview}Random sample of 5 out of 142 countries}
 \centering
 \fontsize{10}{12}\selectfont
@@ -5807,7 +5807,7 @@ Let's now turn our attention to the values in the third column \texttt{mean}. Us
 \end{enumerate}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:continent-mean-life-expectancies}Mean life expectancy by continent and relative differences from mean for Africa}
 \centering
 \fontsize{10}{12}\selectfont
@@ -5861,7 +5861,7 @@ As we did in Subsection \ref{model1table} when studying the relationship between
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:catxplot4b}Linear regression table}
 \centering
 \fontsize{10}{12}\selectfont
@@ -6020,7 +6020,7 @@ We obtained these values and other values using the \texttt{get\_regression\_poi
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:model2-residuals}Regression points (First 10 out of 142 countries)}
 \centering
 \fontsize{10}{12}\selectfont
@@ -6259,7 +6259,7 @@ Recall our two-step process to generate a regression table from Subsection \ref{
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:recall-table}Regression table}
 \centering
 \fontsize{10}{12}\selectfont
@@ -6298,7 +6298,7 @@ and ``wraps'' them into a single function that takes in a saved \texttt{lm()} li
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:regtable-broom}Regression table using tidy() from broom package}
 \centering
 \fontsize{10}{12}\selectfont
@@ -6329,7 +6329,7 @@ Similarly, the \texttt{get\_regression\_points()} function is another wrapper fu
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:regpoints-augment}Regression points using augment() from broom package}
 \centering
 \fontsize{10}{12}\selectfont
@@ -6501,7 +6501,7 @@ Let's also display a random sample of 5 rows of the 463 rows corresponding to di
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:model4-data-preview}A random sample of 5 out of the 463 courses at UT Austin}
 \centering
 \fontsize{10}{12}\selectfont
@@ -6596,7 +6596,7 @@ In particular, we'll write out the equation of the two regression lines in Figur
 Recall in Subsection \ref{model2table} we fit a regression model for countries' life expectancies as a function of which continent the country was in. In other words, we had a numerical outcome variable \(y\) = \texttt{lifeExp} and a categorical explanatory variable \(x\) = \texttt{continent} which had 5 levels: \texttt{Africa}, \texttt{Americas}, \texttt{Asia}, \texttt{Europe}, and \texttt{Oceania}. Let's re-display the regression table you saw in Table \ref{tab:catxplot4b}:
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:unnamed-chunk-221}Regression table for life expectancy as a function of continent}
 \centering
 \fontsize{10}{12}\selectfont
@@ -6628,7 +6628,7 @@ Going back to our multiple regression model for teaching \texttt{score} using \t
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:regtable-interaction}Regression table for interaction model}
 \centering
 \fontsize{10}{12}\selectfont
@@ -6655,7 +6655,7 @@ The value for \texttt{gender:\ male} of -0.446 is not the intercept for the male
 Similarly, \texttt{age:gendermale} = 0.014 is not the slope for age for the male instructors, but rather the \emph{offset} in slope for the male instructors. Therefore, the slope for age for the male instructors is \texttt{age\ +\ age:gendermale} \(= -0.018 + 0.014 = -0.004\). Thus, the lighter-colored regression line in Figure \ref{fig:numxcatxplot1} has intercept 4.437 and slope for age of -0.004. Let's summarize these values in Table \ref{tab:interaction-summary} and focus on the two slopes for age:
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:interaction-summary}Comparison of intercepts and slopes for interaction model}
 \centering
 \fontsize{10}{12}\selectfont
@@ -6776,7 +6776,7 @@ In order to obtain the precise numerical values of the two intercepts and the si
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:regtable-parallel-slopes}Regression table for parallel slopes model}
 \centering
 \fontsize{10}{12}\selectfont
@@ -6798,7 +6798,7 @@ Unlike in Table \ref{tab:regtable-interaction}, however, we now only have a sing
 Let's summarize these values in Table \ref{tab:parallel-slopes-summary}, noting the different intercepts but common slopes:
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:parallel-slopes-summary}Comparison of intercepts and slope for parallel slopes model}
 \centering
 \fontsize{10}{12}\selectfont
@@ -6895,7 +6895,7 @@ Now what if we want the fitted values not just for these two instructors, but fo
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:model4-points-table}Regression points (First 10 out of 463 courses)}
 \centering
 \fontsize{10}{12}\selectfont
@@ -7010,7 +7010,7 @@ Furthermore, let's look at a random sample of five out of the 400 credit card ho
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:model3-data-preview}Random sample of 5 credit card holders}
 \centering
 \fontsize{10}{12}\selectfont
@@ -7072,7 +7072,7 @@ Or we can simultaneously compute them by returning a \emph{correlation matrix} w
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:model3-correlation}Correlation coefficients between credit card debt, credit limit, and income}
 \centering
 \fontsize{10}{12}\selectfont
@@ -7185,7 +7185,7 @@ Let's now fit a regression model and get the regression table corresponding to t
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:model3-table-output}Multiple regression table}
 \centering
 \fontsize{10}{12}\selectfont
@@ -7260,7 +7260,7 @@ Let's also compute all fitted values and residuals for our regression model usin
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:model3-points-table}Regression points (First 10 credit card holders out of 400)}
 \centering
 \fontsize{10}{12}\selectfont
@@ -7374,7 +7374,7 @@ Look closely at the left-hand plot of Figure \ref{fig:numxcatx-comparison-2} cor
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:model2-interaction}Interaction model regression table}
 \centering
 \fontsize{10}{12}\selectfont
@@ -7401,7 +7401,7 @@ perc\_disadvan:sizelarge & 0.189 & 0.323 & 0.586 & 0.559 & -0.446 & 0.824\\
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:model2-parallel-slopes}Parallel slopes regression table}
 \centering
 \fontsize{10}{12}\selectfont
@@ -7513,7 +7513,7 @@ In practice however, \(R^2\) values of 1 almost never occur. Think about it in t
 Let's repeat the above calculations for the parallel slopes model and compare them in Table \ref{tab:model2-r-squared}.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:model2-r-squared}Comparing variances from interaction and parallel slopes models for MA school data}
 \centering
 \fontsize{10}{12}\selectfont
@@ -7532,7 +7532,7 @@ Observe how the \(R^2\) values are near identical at around 0.699 = 69.9\%. In o
 Now let's repeat this \(R^2\) comparison between interaction and parallel slopes model for our models of \(y\) = teaching score for UT Austin professors which you visually compared in Figure \ref{fig:recall-parallel-vs-interaction}. We compare these values in Table \ref{tab:model1-r-squared}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:model1-r-squared}Comparing variances from interaction and parallel slopes models for UT Austin data}
 \centering
 \fontsize{10}{12}\selectfont
@@ -7592,7 +7592,7 @@ Recall from Table \ref{tab:model3-correlation} that the correlation coefficient\
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:cor-credit-2}Correlation between income (in dollars) and credit card debt}
 \centering
 \fontsize{10}{12}\selectfont
@@ -7625,7 +7625,7 @@ Recall in Section \ref{model3}, we saw the two seemingly contradictory results w
 On the other hand, the multiple regression results in Table \ref{tab:model3-table-output} suggested that the relationship between \texttt{debt} and \texttt{income} was \emph{negative}. We re-display this information in Table \ref{tab:model3-table-output-repeat}.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:model3-table-output-repeat}Multiple regression results}
 \centering
 \fontsize{10}{12}\selectfont
@@ -9294,7 +9294,7 @@ And we do the same for our simulations next. Recall that the expected value of \
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:comparing-n1}Comparing expected values and standard errors for three different sample sizes}
 \centering
 \fontsize{10}{12}\selectfont
@@ -9478,7 +9478,7 @@ The expected value and standard error of the difference, \(\overline X_1 - \over
 These are not the only cases where the sampling distribution can be obtained. For example, when performing linear regression, we can obtain the sampling distribution for the slope of the regression line and the behavior will be similar to what we have described here. We will discuss inference in the context of linear regression in Chapter \ref{inference-for-regression}. For now, we present a summary of the different scenarios presented in this chapter.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:table-ch7}\label{tab:table-ch7}Scenarios of sampling for inference}
 \centering
 \fontsize{10}{12}\selectfont
@@ -9658,7 +9658,7 @@ Here our population is \(N\) = whatever the number of pennies are being used in 
 We summarize the correspondence between the sampling bowl exercise in Chapter \ref{sampling} and our pennies exercise in Table \ref{tab:table-ch8-b}, which are the first two rows of the previously seen Table \ref{tab:table-ch8}.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:table-ch8-b}Scenarios of sampling for inference}
 \centering
 \fontsize{10}{12}\selectfont
@@ -11309,7 +11309,7 @@ Who is the study population here? All humans? All the people who watch the show 
 Just like with our sampling bowl, the population parameter here will involve proportions. However, in this case it will be the \emph{difference in population proportions} \(p_{seed} - p_{control}\), where \(p_{seed}\) is the proportion of \emph{all} Americans who if exposed to yawning will yawn themselves, and \(p_{control}\) is the proportion of \emph{all} Americans who if not exposed to yawning still yawn themselves. Correspondingly, the point estimate/sample statistic based the \emph{Mythbusters}' sample of participants will be the \emph{difference in sample proportions} \(\widehat{p}_{seed} - \widehat{p}_{control}\). Let's extend Table \ref{tab:table-ch8} of scenarios of sampling for inference to include our latest scenario.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:table-ch8-c}Scenarios of sampling for inference}
 \centering
 \fontsize{10}{12}\selectfont
@@ -11788,7 +11788,7 @@ The bootstrap distribution will likely not have the same center as the sampling 
 Second, let's now compare the spread of the two distributions: they are somewhat similar. In the previous code, we computed the standard deviations of both distributions as well. Recall that such standard deviations have a special name: \emph{standard errors}. Let's compare them in Table \ref{tab:comparing-se}.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:comparing-se}Comparing standard errors}
 \centering
 \fontsize{10}{12}\selectfont
@@ -11830,7 +11830,7 @@ Recall from \texttt{bowl\_sample\_1} that Yohan and Ilyas sampled \(n = 50\) bal
 Let's compare this theory-based standard error to the standard error of the sampling and bootstrap distributions you computed previously in Subsection \ref{bootstrap-vs-sampling} in Table \ref{tab:comparing-se-2}. Notice how they are all similar!
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:comparing-se-2}Comparing standard errors}
 \centering
 \fontsize{10}{12}\selectfont
@@ -12274,7 +12274,7 @@ In our previous example, we tested the validity of the hypothesized universe of 
 Recall our case study on whether yawning is contagious from Section \ref{case-study-two-prop-ci}. The previous example involves inference about an unknown difference of population proportions as well. This time, it will be \(p_{m} - p_{f}\), where \(p_{m}\) is the population proportion of résumés with male names being recommended for promotion and \(p_{f}\) is the equivalent for résumés with female names. Recall that this is one of the scenarios for inference we've seen so far in Table \ref{tab:table-diff-prop}.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:table-diff-prop}Scenarios of sampling for inference}
 \centering
 \fontsize{10}{12}\selectfont
@@ -13075,7 +13075,7 @@ Let's now revisit this study in terms of terminology and notation related to sam
 Since this sample was randomly taken from the population \texttt{movies}, it is representative of all romance and action movies on IMDb. Thus, any analysis and results based on \texttt{movies\_sample} can generalize to the entire population. What are the relevant \emph{population parameter} and \emph{point estimates}? We introduce the fourth sampling scenario in Table \ref{tab:summarytable-ch10}.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:summarytable-ch10}Scenarios of sampling for inference}
 \centering
 \fontsize{10}{12}\selectfont
@@ -13523,8 +13523,8 @@ We want to find the percentage of values that are at or below \texttt{obs\_two\_
 \end{Shaded}
 
 \begin{verbatim}
-Warning: Check to make sure the conditions have been met for the
-theoretical method. {infer} currently does not check these for you.
+Warning: Check to make sure the conditions have been met for the theoretical
+method. infer currently does not check these for you.
 \end{verbatim}
 
 \begin{figure}
@@ -13706,7 +13706,7 @@ We'll revisit the regression models we studied in Chapter \ref{regression} on ba
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:regression-table-inference}Linear regression table}
 \centering
 \fontsize{10}{12}\selectfont
@@ -13841,7 +13841,7 @@ Looking at this plot again, you might be asking, ``Does that line really have al
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:regtable-11}Previously seen linear regression table}
 \centering
 \fontsize{10}{12}\selectfont
@@ -13885,7 +13885,7 @@ Since we are viewing these \(n\) = 463 courses as a sample, we can view our fitt
 Putting these two ideas together, we can view the equation of the fitted line \(\widehat{y}\) = \(b_0 + b_1 \cdot x\) = \(3.880 + 0.067 \cdot \text{bty}\_\text{avg}\) as an estimate of some true and unknown \emph{population line} \(y = \beta_0 + \beta_1 \cdot x\). Thus we can draw parallels between our teaching evaluations analysis and all the sampling scenarios we've seen previously. In this chapter, we'll focus on the final scenario of regression slopes as shown in Table \ref{tab:summarytable-ch11}.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:summarytable-ch11}Scenarios of sampling for inference}
 \centering
 \fontsize{10}{12}\selectfont
@@ -13910,7 +13910,7 @@ Since we are now viewing our fitted slope \(b_1\) and fitted intercept \(b_0\) a
 We've so far focused only on the two leftmost columns of the regression table in Table \ref{tab:regtable-11}: \texttt{term} and \texttt{estimate}. Let's now shift our attention to the remaining columns: \texttt{std\_error}, \texttt{statistic}, \texttt{p\_value}, \texttt{lower\_ci} and \texttt{upper\_ci} in Table \ref{tab:score-model-part-deux}.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:score-model-part-deux}Previously seen regression table}
 \centering
 \fontsize{10}{12}\selectfont
@@ -14599,7 +14599,7 @@ Don't worry if you're feeling a little overwhelmed at this point. There is a lot
 We've finished the last two scenarios from the ``Scenarios of sampling for inference'' table in Subsection \ref{sampling-conclusion-table}, which we re-display in Table \ref{tab:table-ch11}.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:table-ch11}\label{tab:summarytable-ch9}Scenarios of sampling for inference}
 \centering
 \fontsize{10}{12}\selectfont
@@ -15118,7 +15118,7 @@ Is the additional complexity of the interaction model warranted? Looking at the 
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:seattle-interaction}Regression table for interaction model}
 \centering
 \fontsize{10}{12}\selectfont
@@ -15607,7 +15607,7 @@ At its simplest, log10 transformations return base 10 \emph{logarithms}. For exa
 Log transformations allow us to focus on changes in \emph{orders of magnitude}. In other words, they allow us to focus on \emph{multiplicative changes} instead of \emph{additive ones}. Let's illustrate this idea in Table \ref{tab:logten} with examples of prices of consumer goods in 2019 US dollars.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:logten}log10 transformed prices, orders of magnitude, and examples}
 \centering
 \fontsize{10}{12}\selectfont
@@ -15658,35 +15658,35 @@ If you are seeing different results than what is in the book, we recommend insta
 \toprule
 package & version\\
 \midrule
-bookdown & 0.36\\
+bookdown & 0.37\\
 broom & 1.0.5\\
-dplyr & 1.1.3\\
+dplyr & 1.1.4\\
 fivethirtyeight & 0.6.2\\
 forcats & 1.0.0\\
 gapminder & 1.0.0\\
 ggplot2 & 3.4.4\\
 ggplot2movies & 0.0.1\\
-ggrepel & 0.9.4\\
-infer & 1.0.5\\
+ggrepel & 0.9.5\\
+infer & 1.0.6\\
 ISLR & 1.4\\
 janitor & 2.2.0\\
-kableExtra & 1.3.4\\
+kableExtra & 1.4.0\\
 knitr & 1.45\\
 lubridate & 1.9.3\\
 moderndive & 0.5.5\\
-mvtnorm & 1.2-3\\
+mvtnorm & 1.2-4\\
 nycflights13 & 1.0.2\\
-patchwork & 1.1.3\\
+patchwork & 1.2.0\\
 purrr & 1.0.2\\
-readr & 2.1.4\\
-scales & 1.2.1\\
+readr & 2.1.5\\
+scales & 1.3.0\\
 sessioninfo & 1.2.2\\
 skimr & 2.1.5\\
-stringr & 1.5.0\\
+stringr & 1.5.1\\
 tibble & 3.2.1\\
-tidyr & 1.3.0\\
+tidyr & 1.3.1\\
 tidyverse & 2.0.0\\
-viridis & 0.6.4\\
+viridis & 0.6.5\\
 viridisLite & 0.4.2\\
 \bottomrule
 \end{longtable}
